@@ -9,8 +9,8 @@ if (tail(unlist(strsplit(getwd(),"/")),n=1) != "r-quandl-data") {
 
 ##---------------------------------- futures symbol ----------------------------------
 #ExUL = data.frame(Exchange=character(), Underlying=character())
-source("//VMWARE-HOST/Shared Folders/Documents/workspace/r-basis-analysis/ExUL.R", echo=FALSE, encoding="GBK")
-
+#source("//VMWARE-HOST/Shared Folders/Documents/workspace/r-basis-analysis/ExUL.R", echo=FALSE, encoding="GBK")
+source(paste(getwd(),"ExUL.R",sep="/"), echo=FALSE, encoding="GBK")
 ExUL = ExUL[ExUL$dsName=="quandl",]
 
 #---------------------------------- retrieve future data from Quandl ----------------------------------
@@ -98,4 +98,3 @@ for (i in 1:dim(QuandlTicker)[1]) {
 #QuandlTicker = merge(MonthYear, ExUL)
 #names(QuandlTicker) = c("MonthCode", "Month", "Year", "Exchange", "Underlying")
 #QuandlTicker = cbind(QuandlTicker, Ticker=as.character(paste(QuandlTicker$Exchange,"/",QuandlTicker$Underlying,QuandlTicker$MonthCode,QuandlTicker$Year,sep="")))
-
